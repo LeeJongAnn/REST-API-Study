@@ -10,7 +10,7 @@ public class StudentController {
 
 
     @PostMapping("/v1/create")
-    public String postStudent(@RequestParam Integer id , @RequestParam String name) {
+    public String postStudent(Student student) {
 
         return "Hello World";
 
