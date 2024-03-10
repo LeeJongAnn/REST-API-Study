@@ -1,5 +1,8 @@
 # 공부하면서 만들어가는 REST-API 프로젝트
 
+
+## Day1
+
 REST-API 로 간단한 프로젝트를 만들어보려고 한다. 
 
  
@@ -89,10 +92,6 @@ mockMvc 객체를 사용하여 , 주소에 맞는 값을 작성하여 파라미�
 - create 메소드로 학생 객체 생성 및 Repository에 저장하도록 한다.
 
 
-
-
-
-
 -> 생성자 주입으로 의존성을 주입시켰다.
 
 
@@ -111,52 +110,15 @@ mockMvc 객체를 사용하여 , 주소에 맞는 값을 작성하여 파라미�
 
 생성자 주입을 웬만하면 권장한다.
 
+---------------------------
 
 
-
-
+## Day2 
 2. 서비스 계층 테스트하기 (create 메소드) 및 전체 학생 조회하기
 
 - create 메소드 테스트하기 (service 계층)
 
 - get 메소드 작성하기 ( 전체 학생 조회 )
 
+- Junit5 의존성 주입이 되지 않아 발생하는 오류 수정 because "this.studentService" is null 
 
-
-
-![img.png](img.png)
-
-
-
-해당 코드로 테스트를 돌렸을때 아래와 같은 에러가 나온다
-
-![img_1.png](img_1.png)
-
-
-because "this.studentService" is null 이것은 studentService null로 나오는데
-
-의존성 주입이 되지 않아서 발생하는 오류이다.
-
-
-![img_2.png](img_2.png)
-
-@Autowired로 주입했는데 오류가 뜬다
-
-
-![img_3.png](img_3.png)
-
-
-생성자 주입으로 의존성을 주입했다. 하지만 다시 오류가 발생한다.
-
-찾아보니 Spring에서는 @Autowired가 붙어있지 않아도 자동으로 Ioc컨테이너에서 객체를
-
-탐색해 의존성을 주입해주지만
-
-
-Junit 테스트에서는 그런 환경이 조성되어 있지 않기 때문에
-
-가상으로 Spring의 환경을 조성해줘야 한다. @SpringBootTest를 이용해준다.
-![img_4.png](img_4.png)
-![img_5.png](img_5.png)
-
-테스트가 통과한 것을 알 수 있으며 DB에도 들어가 있다. 
