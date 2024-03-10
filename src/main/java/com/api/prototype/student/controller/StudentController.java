@@ -6,6 +6,8 @@ import com.api.prototype.student.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class StudentController {
 
@@ -24,8 +26,8 @@ public class StudentController {
     }
 
     @GetMapping("/v1/get")
-    public Student getStudent(Student student) {
-
-
+    public List<Student> getStudent(Student student) {
+        List<Student> students = service.get();
+        return students;
     }
 }

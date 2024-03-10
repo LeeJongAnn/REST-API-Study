@@ -22,6 +22,11 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
+    public List<Student> get() {
+        List<Student> listStudent = studentRepository.findAll();
+        return listStudent;
+    }
+
 
 
 }
