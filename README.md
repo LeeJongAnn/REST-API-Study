@@ -122,3 +122,13 @@ mockMvc 객체를 사용하여 , 주소에 맞는 값을 작성하여 파라미�
 
 - Junit5 의존성 주입이 되지 않아 발생하는 오류 수정 because "this.studentService" is null 
 
+
+## Day3
+
+- 1.getListStudent 불러오기 테스트 및 코드 작성
+
+- 2.StudentNotFoundException 작성
+
+- 3.StudentService에 DB에 학생 리스트가 비었을 경우
+
+- StudentNotFoundException 뜨도록 작성
