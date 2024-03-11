@@ -3,11 +3,9 @@ package com.api.prototype.student.service;
 
 import com.api.prototype.student.entity.Student;
 import com.api.prototype.student.repository.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -22,8 +20,11 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public List<Student> get() {
+    public List<Student> getListStudent() throws StudentNotFoundException {
         List<Student> listStudent = studentRepository.findAll();
+        if (listStudent.isEmpty()) {
+            throw new StudentNotFoundException("학생들이 존재하지 않습니다.");
+        }
         return listStudent;
     }
 

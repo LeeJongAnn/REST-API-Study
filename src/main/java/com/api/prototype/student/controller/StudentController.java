@@ -2,8 +2,8 @@ package com.api.prototype.student.controller;
 
 
 import com.api.prototype.student.entity.Student;
+import com.api.prototype.student.service.StudentNotFoundException;
 import com.api.prototype.student.service.StudentService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,15 +19,13 @@ public class StudentController {
     }
 
     @PostMapping("/v1/create")
-    public String postStudent(Student student) {
-
-        return "Hello World";
+    public Student postStudent(Student student) {
+        return student;
 
     }
-
     @GetMapping("/v1/get")
-    public List<Student> getStudent(Student student) {
-        List<Student> students = service.get();
+    public List<Student> getListStudent() throws StudentNotFoundException {
+        List<Student> students = service.getListStudent();
         return students;
     }
 }
