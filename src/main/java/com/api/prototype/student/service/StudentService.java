@@ -29,8 +29,8 @@ public class StudentService {
     }
 
 
-    public Student getStudent(Integer id) {
-        Student student = studentRepository.findById(id).orElseThrow(new StudentNotFoundException("해당 하는 학생이 존재하지 않습니다"));
+    public Student getStudent(Integer id) throws StudentNotFoundException {
+        Student student = studentRepository.findById(id).orElseThrow(()-> new StudentNotFoundException("해당 하는 학생이 존재하지 않습니다."));
         return student;
     }
 

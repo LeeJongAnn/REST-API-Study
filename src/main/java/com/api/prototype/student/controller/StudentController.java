@@ -31,7 +31,7 @@ public class StudentController {
     }
 
     @GetMapping("/v1/get/{studentId}")
-    public Student getStudentOne(@PathVariable("studentId") Integer studentId) {
+    public Student getStudentOne(@PathVariable("studentId") Integer studentId) throws StudentNotFoundException {
         Student student = service.getStudent(studentId);
         return student;
     }
