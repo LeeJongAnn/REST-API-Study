@@ -132,3 +132,9 @@ mockMvc 객체를 사용하여 , 주소에 맞는 값을 작성하여 파라미�
 - 3.StudentService에 DB에 학생 리스트가 비었을 경우
 
 - StudentNotFoundException 뜨도록 작성
+
+## Day4
+
+- 1.StudentController getStudentOne 메소드 작성
+
+- 2.서비스 계층 getStudent 메서드 작성
