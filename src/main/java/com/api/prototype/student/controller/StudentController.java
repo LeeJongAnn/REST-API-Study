@@ -23,9 +23,16 @@ public class StudentController {
         return student;
 
     }
+
     @GetMapping("/v1/get")
     public List<Student> getListStudent() throws StudentNotFoundException {
         List<Student> students = service.getListStudent();
         return students;
+    }
+
+    @GetMapping("/v1/get/{studentId}")
+    public Student getStudentOne(@PathVariable("studentId") Integer studentId) {
+        Student student = service.getStudent(studentId);
+        return student;
     }
 }
