@@ -4,6 +4,7 @@ package com.api.prototype.student.controller;
 import com.api.prototype.student.entity.Student;
 import com.api.prototype.student.service.StudentNotFoundException;
 import com.api.prototype.student.service.StudentService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,5 +35,12 @@ public class StudentController {
     public Student getStudentOne(@PathVariable("studentId") Integer studentId) throws StudentNotFoundException {
         Student student = service.getStudent(studentId);
         return student;
+    }
+
+    @DeleteMapping("/v1/delete/{studentId}")
+    public ResponseEntity<?> deleteStudentOne(@PathVariable("studentId") Integer studentId) throws StudentNotFoundException {
+
+        service.deleteStudent(studentId);
+        return ResponseEntity.ok().build();
     }
 }

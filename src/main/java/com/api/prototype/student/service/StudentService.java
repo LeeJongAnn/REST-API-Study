@@ -28,10 +28,24 @@ public class StudentService {
         return listStudent;
     }
 
+    /*
+     * 학생 객체를 얻어온다.
+     * parameter : id
+     * author : LeeJongAnn
+     * */
 
     public Student getStudent(Integer id) throws StudentNotFoundException {
         Student student = studentRepository.findById(id).orElseThrow(()-> new StudentNotFoundException("해당 하는 학생이 존재하지 않습니다."));
         return student;
+    }
+
+    /*
+    * 학생 객체들에 대한 삭제를 요청한다.
+    * parameter : id
+    * author : LeeJongAnn
+    * */
+    public void deleteStudent(Integer id) throws  StudentNotFoundException {
+        studentRepository.deleteById(id);
     }
 
 
