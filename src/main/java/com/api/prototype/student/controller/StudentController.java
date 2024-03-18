@@ -2,6 +2,7 @@ package com.api.prototype.student.controller;
 
 
 import com.api.prototype.student.entity.Student;
+import com.api.prototype.student.response.StudentDTO;
 import com.api.prototype.student.service.StudentNotFoundException;
 import com.api.prototype.student.service.StudentService;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +21,11 @@ public class StudentController {
     }
 
     @PostMapping("/v1/create")
-    public Student postStudent(Student student) {
-        return student;
+    public StudentDTO postStudent(Student student) {
+
+        StudentDTO studentDTO = new StudentDTO(student);
+
+        return studentDTO;
 
     }
 

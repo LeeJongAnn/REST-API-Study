@@ -14,6 +14,8 @@ import org.springframework.test.annotation.Rollback;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -70,7 +72,7 @@ public class StudentServiceTest {
         studentRepository.saveAll(List.of(student, student2));
 
         List<Student> students = studentService.getListStudent();
-        assertEquals(2,students.stream().count());
+        assertEquals(2, students.stream().count());
 
 
     }

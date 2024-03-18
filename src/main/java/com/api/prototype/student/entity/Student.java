@@ -2,7 +2,9 @@ package com.api.prototype.student.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Table(name = "student")
 public class Student {
@@ -19,35 +21,13 @@ public class Student {
 
     private String number;
 
-    public Integer getId() {
-        return id;
-    }
+    public Student() {
 
-    public void setId(Integer id) {
+    }
+    public Student(Integer id, String name) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
+
+
 }
