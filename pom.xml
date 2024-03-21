@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.api.prototype</groupId>
-	<artifactId>student</artifactId>
+	<artifactId>Spring-Rest-Api-Board</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>student</name>
+	<name>Spring-Rest-Api-Board</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
