@@ -1,4 +1,4 @@
-package com.api.prototype.board.board.config;
+package com.api.prototype.config;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;

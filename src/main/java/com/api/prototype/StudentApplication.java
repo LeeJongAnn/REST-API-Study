@@ -1,4 +1,4 @@
-package com.api.prototype.board.board;
+package com.api.prototype;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

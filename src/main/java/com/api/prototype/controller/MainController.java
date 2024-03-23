@@ -1,4 +1,4 @@
-package com.api.prototype.board.board.controller;
+package com.api.prototype.controller;
 
 
 import org.springframework.web.bind.annotation.RestController;

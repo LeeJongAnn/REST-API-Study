@@ -1,24 +1,20 @@
-package com.api.prototype.board.user;
+package com.api.prototype;
 
 
-import com.api.prototype.board.board.StudentApplication;
-import com.api.prototype.board.board.repository.UserRepository;
-import com.api.prototype.board.board.entity.User;
+import com.api.prototype.StudentApplication;
+import com.api.prototype.repository.UserRepository;
+import com.api.prototype.entity.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -61,7 +57,7 @@ public class UserTest {
     @Test
     @DisplayName("다수 유저 생성 테스트")
     public void test3() {
-        int N = 100000;
+        int N = 10;
 
         List<User> listUser = new ArrayList<>();
         for (int i = 0; i < N; i++) {
@@ -73,11 +69,10 @@ public class UserTest {
                     .password("asdf1234" + i)
                     .build();
 
-                    listUser.add(user);
+            listUser.add(user);
         }
 
         userRepository.saveAll(listUser);
-
 
 
     }

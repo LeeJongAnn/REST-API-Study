@@ -1,4 +1,4 @@
-package com.api.prototype.board.board.entity;
+package com.api.prototype.entity;
 
 
 import jakarta.persistence.*;
