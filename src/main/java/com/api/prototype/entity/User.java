@@ -4,12 +4,13 @@ package com.api.prototype.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 
-@Getter
+@Data
 @Entity
 @Table(indexes = {@Index(name = "IDX_USER_EMAIL", columnList = "username,email")})
 public class User {
@@ -43,13 +44,4 @@ public class User {
     }
 
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }

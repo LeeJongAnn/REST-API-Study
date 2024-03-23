@@ -2,8 +2,12 @@ package com.api.prototype.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
+@Data
 @Entity(name = "Board")
 public class Board {
 
