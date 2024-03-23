@@ -16,13 +16,13 @@ public class UserResponse {
     private Integer id;
 
     @NotNull
-    @Column(length = 10,nullable = false)
+    @Column(length = 10, nullable = false)
     private String username;
 
-    @Column(length = 256,nullable = false)
+    @Column(length = 256, nullable = false)
     private String password;
 
-    @Column(length = 25 , nullable = false)
+    @Column(length = 25, nullable = false)
     private String email;
 
 
@@ -33,6 +33,7 @@ public class UserResponse {
         this.password = password;
         this.email = email;
     }
+
     public UserResponse responseDTO(User user) {
 
         UserResponse userResponse = new UserResponse()
@@ -45,6 +46,7 @@ public class UserResponse {
 
         return userResponse;
     }
+
     public UserResponse() {
 
     }

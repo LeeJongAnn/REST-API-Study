@@ -1,4 +1,4 @@
-package com.api.prototype.board;
+package com.api.prototype;
 
 
 import org.springframework.boot.test.context.SpringBootTest;

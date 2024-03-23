@@ -1,4 +1,4 @@
-package com.api.prototype;
+package com.api.prototype.user;
 
 
 import com.api.prototype.StudentApplication;
