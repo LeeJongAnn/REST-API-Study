@@ -1,4 +1,4 @@
-package com.api.prototype.board.entity;
+package com.api.prototype.board.board.entity;
 
 
 import jakarta.persistence.*;
@@ -15,12 +15,9 @@ public class Board {
 
     private String content;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
     private User user;
-
-
 
 
 

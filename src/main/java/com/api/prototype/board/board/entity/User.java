@@ -1,4 +1,4 @@
-package com.api.prototype.board.entity;
+package com.api.prototype.board.board.entity;
 
 
 import jakarta.persistence.*;
@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.Length;
 
 @Getter
 @Entity
-@Table(name = "User")
+@Table(indexes = {@Index(name = "IDX_USER_EMAIL", columnList = "username,email")})
 public class User {
 
 
