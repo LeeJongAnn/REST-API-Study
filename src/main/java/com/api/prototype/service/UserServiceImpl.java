@@ -3,6 +3,7 @@ package com.api.prototype.service;
 
 import com.api.prototype.entity.User;
 import com.api.prototype.repository.UserRepository;
+import com.api.prototype.response.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public User create(User user) {
 
-        User save = userRepository.save(user);
-        return save;
+        User saveUser = userRepository.save(user);
+        return saveUser;
 
     }
 }

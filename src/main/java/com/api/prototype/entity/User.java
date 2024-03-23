@@ -1,6 +1,7 @@
 package com.api.prototype.entity;
 
 
+import com.api.prototype.response.UserResponse;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
@@ -16,19 +17,18 @@ import org.hibernate.validator.constraints.Length;
 public class User {
 
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
-    @Column(length = 10,nullable = false)
+    @Column(length = 10, nullable = false)
     private String username;
 
-    @Column(length = 256,nullable = false)
+    @Column(length = 256, nullable = false)
     private String password;
 
-    @Column(length = 25 , nullable = false)
+    @Column(length = 25, nullable = false)
     private String email;
 
     public User() {
