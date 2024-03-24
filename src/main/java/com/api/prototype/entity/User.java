@@ -11,7 +11,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 
-@Data
+@Getter
 @Entity
 @Table(indexes = {@Index(name = "IDX_USER_EMAIL", columnList = "username,email")})
 public class User {
@@ -43,5 +43,17 @@ public class User {
         this.email = email;
     }
 
+    public void changePassword(String password) {
+        this.password = password;
+    }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

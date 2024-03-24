@@ -77,5 +77,24 @@ public class UserTest {
 
     }
 
+    @Test
+    @DisplayName("비밀번호 암호화 테스트")
+    public void passwordTest() {
+
+        String password = "KK";
+
+        User user = new User()
+                .builder()
+                .id(1)
+                .username("JJ" + 2)
+                .email("JJ@naver.com" + 3)
+                .password("1234")
+                .build();
+
+        user.changePassword(password);
+
+        System.out.println(user);
+    }
+
 
 }

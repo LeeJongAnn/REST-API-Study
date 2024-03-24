@@ -19,18 +19,14 @@ public class UserResponse {
     @Column(length = 10, nullable = false)
     private String username;
 
-    @Column(length = 256, nullable = false)
-    private String password;
-
     @Column(length = 25, nullable = false)
     private String email;
 
 
     @Builder
-    public UserResponse(Integer id, String username, String password, String email) {
+    public UserResponse(Integer id, String username, String email) {
         this.id = id;
         this.username = username;
-        this.password = password;
         this.email = email;
     }
 
@@ -41,7 +37,6 @@ public class UserResponse {
                 .id(user.getId())
                 .username(user.getUsername())
                 .email(user.getEmail())
-                .password(user.getPassword())
                 .build();
 
         return userResponse;
