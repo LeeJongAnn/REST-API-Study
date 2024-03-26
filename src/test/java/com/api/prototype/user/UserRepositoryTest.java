@@ -20,21 +20,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest(classes = StudentApplication.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Rollback(value = true)
-public class UserTest {
+@Rollback(value = false)
+public class UserRepositoryTest {
 
 
     private UserRepository userRepository;
 
     @Autowired
-    public UserTest(UserRepository userRepository) {
+    public UserRepositoryTest(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    @BeforeEach
-    public void clean() {
-        userRepository.deleteAll();
-    }
 
     @Test
     @DisplayName("유저 생성 테스트")
@@ -75,6 +71,16 @@ public class UserTest {
         userRepository.saveAll(listUser);
 
 
+    }
+
+    @Test
+    @DisplayName("findAll 테스트")
+    public void userfindAllTest() {
+
+
+        List<User> all = (List<User>) userRepository.findAll();
+
+        System.out.println(all);
     }
 
     @Test

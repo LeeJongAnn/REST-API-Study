@@ -6,7 +6,11 @@ import com.api.prototype.repository.UserRepository;
 import com.api.prototype.response.UserResponse;
 import com.api.prototype.service.UserService;
 import com.api.prototype.service.UserServiceImpl;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,23 +24,17 @@ public class UserController {
 
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private UserServiceImpl userService;
 
     @GetMapping("/api/listUsers")
-    public List<User> getUserList() {
+    public ResponseEntity<?> getUserList() {
 
-        List<User> userList = new ArrayList<>();
-
-        List<User> allUsers = (List<User>) userRepository.findAll();
-
-        return allUsers;
+        List<User> allUsers = userService.getUserList();
+        return ResponseEntity.ok(allUsers);
     }
 
     @PostMapping("/api/createUser")
-    public UserResponse createUser(@RequestBody User user) {
+    public UserResponse createUser(@RequestBody @Valid User user) {
 
         User saveUser = userService.create(user);
 
@@ -47,7 +45,11 @@ public class UserController {
 
     }
 
-
+    @Data
+    @AllArgsConstructor
+    static class Result<T>{
+        private T data;
+    }
 
 
 }
