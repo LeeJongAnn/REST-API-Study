@@ -40,7 +40,6 @@ public class UserController {
 
         UserResponse userResponse = new UserResponse().responseDTO(saveUser);
 
-
         return userResponse;
 
     }
