@@ -3,10 +3,8 @@ package com.api.prototype.controller;
 
 import com.api.prototype.Exception.UserNotFoundException;
 import com.api.prototype.entity.User;
-import com.api.prototype.repository.UserRepository;
-import com.api.prototype.response.UserResponse;
-import com.api.prototype.service.UserService;
-import com.api.prototype.service.UserServiceImpl;
+import com.api.prototype.response.UserResponse.UserResponse;
+import com.api.prototype.service.userService.UserServiceImpl;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -34,6 +31,7 @@ public class UserController {
 
     @PostMapping("/api/createUser")
     public ResponseEntity<?> createUser(@RequestBody @Valid User user) {
+
 
         User saveUser = userService.create(user);
 

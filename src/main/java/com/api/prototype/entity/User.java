@@ -1,14 +1,10 @@
 package com.api.prototype.entity;
 
 
-import com.api.prototype.response.UserResponse;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.validator.constraints.Length;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +20,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
+    @NotNull(message = "username must not be null")
     @Column(length = 10, nullable = false)
     private String username;
-    @NotNull
+    @NotNull(message = "password must not be null")
     @Column(length = 256, nullable = false)
     private String password;
-    @NotNull
+    @NotNull(message = "email must not be null")
     @Column(length = 25, nullable = false)
     private String email;
 

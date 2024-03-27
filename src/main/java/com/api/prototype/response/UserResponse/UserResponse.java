@@ -1,10 +1,6 @@
-package com.api.prototype.response;
+package com.api.prototype.response.UserResponse;
 
 import com.api.prototype.entity.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;

@@ -6,7 +6,7 @@ package com.api.prototype.user;
 import com.api.prototype.config.SecurityConfiguration;
 import com.api.prototype.controller.UserController;
 import com.api.prototype.entity.User;
-import com.api.prototype.service.UserServiceImpl;
+import com.api.prototype.service.userService.UserServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

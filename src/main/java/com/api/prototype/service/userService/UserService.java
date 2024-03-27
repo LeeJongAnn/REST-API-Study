@@ -1,8 +1,8 @@
-package com.api.prototype.service;
+package com.api.prototype.service.userService;
 
 import com.api.prototype.Exception.UserNotFoundException;
 import com.api.prototype.entity.User;
-import com.api.prototype.response.UserResponse;
+import com.api.prototype.response.UserResponse.UserResponse;
 
 import java.util.List;
 
