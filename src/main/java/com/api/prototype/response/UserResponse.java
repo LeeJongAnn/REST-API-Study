@@ -7,35 +7,40 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 @ToString
 @Setter
 @Getter
 public class UserResponse {
 
-    private Integer id;
 
     @NotNull
-    @Column(length = 10, nullable = false)
     private String username;
 
-    @Column(length = 25, nullable = false)
+    @NotNull
     private String email;
+
+    @NotNull
+    @Length(min = 6,max = 26,message = "password at least 6 strings to 26")
+    private String password;
 
 
     @Builder
-    public UserResponse(Integer id, String username, String email) {
-        this.id = id;
+    public UserResponse(String username, String email, String password) {
         this.username = username;
         this.email = email;
+        this.password = password;
     }
+
+
 
     public UserResponse responseDTO(User user) {
 
         UserResponse userResponse = new UserResponse()
                 .builder()
-                .id(user.getId())
                 .username(user.getUsername())
+                .password(user.getPassword())
                 .email(user.getEmail())
                 .build();
 

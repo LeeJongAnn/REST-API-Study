@@ -10,6 +10,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Getter
 @Entity
@@ -24,13 +27,16 @@ public class User {
     @NotNull
     @Column(length = 10, nullable = false)
     private String username;
-
+    @NotNull
     @Column(length = 256, nullable = false)
     private String password;
-
+    @NotNull
     @Column(length = 25, nullable = false)
     private String email;
 
+
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<Board> board = new ArrayList<>();
     public User() {
 
     }
@@ -38,6 +44,12 @@ public class User {
     @Builder
     public User(Integer id, String username, String password, String email) {
         this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
+    public void editUser(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
