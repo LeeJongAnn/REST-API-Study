@@ -14,3 +14,7 @@
 1. GetUserList로 유저가 리스트로 받아와지는지 확인
 2. Security작성 및 설정 변경
 3. User 엔티티에 Validation 추가
+
+## Day3 
+1. 예외 처리 추가 
+2. JWT Token 생성 부분까지 진행

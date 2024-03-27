@@ -24,13 +24,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
+    @NotNull(message = "username must not be null")
     @Column(length = 10, nullable = false)
     private String username;
-    @NotNull
+    @NotNull(message = "password must not be null")
     @Column(length = 256, nullable = false)
     private String password;
-    @NotNull
+    @NotNull(message = "email must not be null")
     @Column(length = 25, nullable = false)
     private String email;
 
