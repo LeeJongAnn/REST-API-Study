@@ -1,15 +1,17 @@
 package com.api.prototype.Exception;
 
-import com.api.prototype.service.Token;
 
-public class InvalidPassword extends Exception {
+public class InvalidPassword extends CustomException {
 
+    private static final String MESSAGE = "There is Invalid Password";
 
     public InvalidPassword(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public InvalidPassword(String message) {
-        super(message);
+    @Override
+    public int statusCode() {
+        return 400;
     }
+
 }

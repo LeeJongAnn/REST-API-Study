@@ -6,7 +6,6 @@ import com.api.prototype.Exception.UserNotFoundException;
 import com.api.prototype.entity.User;
 import com.api.prototype.repository.UserRepository;
 import com.api.prototype.response.UserResponse.UserResponse;
-import com.api.prototype.service.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,19 +23,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public Token login(String email, String password) throws InvalidPassword {
-
-        User UserDB = userRepository.findByEmail(email);
-        String userByEmailPassword = UserDB.getPassword();
-
-        if (!passwordEncoder.matches(password, userByEmailPassword)) {
-            throw new InvalidPassword("Password is not correct");
-        }
-
-        return Token.of(UserDB.getId(), 10L, "mySecretNumber");
-
-    }
-
 
     @Override
     public List<User> getUserList() {
@@ -49,9 +35,9 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User create(User user) {
 
-        String password = user.getPassword();
-        String encode = passwordEncoder.encode(password);
-        user.changePassword(encode);
+//        String password = user.getPassword();
+//        String encode = passwordEncoder.encode(password);
+//        user.changePassword(encode);
         User saveUser = userRepository.save(user);
         return saveUser;
 

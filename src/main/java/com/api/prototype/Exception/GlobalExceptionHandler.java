@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
         List<FieldError> fieldErrors = bindingResult.getFieldErrors();
         errorResponse.setCreatetime(dateFormat.format(new Date()));
         errorResponse.setReason(request.getServletPath());
-        errorResponse.setStatus(ex.getStatusCode());
+        errorResponse.setStatus(String.valueOf(ex.getStatusCode()));
         for (FieldError field : fieldErrors) {
             errorResponse.addErrors(field.getDefaultMessage());
         }
@@ -45,4 +45,15 @@ public class GlobalExceptionHandler {
         return errorResponse;
     }
 
+    @ExceptionHandler(CustomException.class)
+    @ResponseBody
+    protected ErrorResponse handleUnAuthorizeException(HttpServletRequest request, Unauthorized ex) {
+        ErrorResponse errorResponse = new ErrorResponse();
+
+        errorResponse.setStatus(String.valueOf(ex.statusCode()));
+        errorResponse.setReason(ex.getMessage());
+        errorResponse.setCreatetime(String.valueOf(new Date()));
+
+        return errorResponse;
+    }
 }
