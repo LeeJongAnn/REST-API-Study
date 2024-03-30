@@ -1,10 +1,10 @@
 package com.api.prototype.service.userService;
 
 
-import com.api.prototype.Exception.InvalidPassword;
 import com.api.prototype.Exception.UserNotFoundException;
 import com.api.prototype.entity.User;
 import com.api.prototype.repository.UserRepository;
+import com.api.prototype.request.UserSignUpRequest;
 import com.api.prototype.response.UserResponse.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,24 +31,29 @@ public class UserServiceImpl implements UserService {
         return allUsers;
     }
 
-    @Override
     @Transactional
-    public User create(User user) {
+    public User create(UserSignUpRequest userSignUpRequest) {
+        String password = userSignUpRequest.getPassword();
+        String encodePassword = passwordEncoder.encode(password);
+        User user = new User().builder()
+                .email(userSignUpRequest.getEmail())
+                .username(userSignUpRequest.getUsername())
+                .password(encodePassword)
+                .build();
 
-//        String password = user.getPassword();
-//        String encode = passwordEncoder.encode(password);
-//        user.changePassword(encode);
-        User saveUser = userRepository.save(user);
-        return saveUser;
+        boolean matches = passwordEncoder.matches(password, encodePassword);
+        System.out.println(matches);
+        return userRepository.save(user);
 
     }
+
 
     @Override
     public User updateUser(Integer id, UserResponse editUser) throws UserNotFoundException {
         User user = userRepository.findById(id).orElseThrow(
                 () -> new UserNotFoundException("User not found: " + id)
         );
-        user.editUser(editUser.getUsername(),editUser.getPassword(),editUser.getEmail());
+        user.editUser(editUser.getUsername(), editUser.getPassword(), editUser.getEmail());
         String encodedPassword = passwordEncoder.encode(editUser.getPassword());
         user.changePassword(encodedPassword);
 

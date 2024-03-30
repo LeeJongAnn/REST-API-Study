@@ -4,6 +4,7 @@ package com.api.prototype.controller;
 import com.api.prototype.Exception.UserNotFoundException;
 import com.api.prototype.config.UserSession;
 import com.api.prototype.entity.User;
+import com.api.prototype.request.UserSignUpRequest;
 import com.api.prototype.response.UserResponse.UserResponse;
 import com.api.prototype.service.userService.UserServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,14 +35,11 @@ public class UserController {
     }
 
     @PostMapping("/api/createUser")
-    public ResponseEntity<?> createUser(@RequestBody @Valid User user) {
+    public ResponseEntity<?> createUser(@RequestBody @Valid UserSignUpRequest user) {
 
 
         User saveUser = userService.create(user);
-
-        UserResponse userResponse = new UserResponse().responseDTO(saveUser);
-
-        return ResponseEntity.ok(userResponse);
+        return ResponseEntity.ok(saveUser);
 
     }
 
