@@ -2,12 +2,10 @@ package com.api.prototype.controller;
 
 
 import com.api.prototype.Exception.UserNotFoundException;
-import com.api.prototype.config.UserSession;
 import com.api.prototype.entity.User;
 import com.api.prototype.request.UserSignUpRequest;
 import com.api.prototype.response.UserResponse.UserResponse;
 import com.api.prototype.service.userService.UserServiceImpl;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Data;

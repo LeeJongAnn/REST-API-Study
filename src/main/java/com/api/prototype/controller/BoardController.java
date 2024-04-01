@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BoardController {
 
+
     @Autowired
     private boardServiceImpl boardService;
 
@@ -34,4 +35,6 @@ public class BoardController {
 
         return ResponseEntity.ok(listBoard);
     }
+
+
 }

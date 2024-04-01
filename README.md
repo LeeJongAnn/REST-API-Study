@@ -20,3 +20,7 @@
 2. JWT Token 생성 부분까지 진행
 3. ExceptionHandler 작성 및 ErrorResponse 추가
 2. BoardController 작성 및 BoardRepository , BoardService 작성 ( BoardCOntroller Get , Post 작성 )
+
+
+## Day4 ~ 5 (3/28)
+1. 로그인 시 JWT AccessToken 발급 기능 추가

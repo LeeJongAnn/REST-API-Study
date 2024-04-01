@@ -1,0 +1,10 @@
+## 게시글 생성
+
+POST http://localhost:8080/api/createBoard
+Content-Type: application/json
+
+{
+  "title": "으아아아아아아",
+  "content": "제발!!!!!!"
+}
+

@@ -9,17 +9,19 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfiguration {
 
 
+
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests((authorize) -> authorize.anyRequest().permitAll());
+        http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests((authorize) -> authorize.anyRequest().permitAll())
+                .authorizeHttpRequests((authorize)-> authorize.requestMatchers("/api/createBoard").hasAnyRole("Admin","User"));
         return http.build();
     }
 

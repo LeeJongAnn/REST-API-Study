@@ -3,12 +3,19 @@ package com.api.prototype.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.util.Date;
+import java.util.List;
 
 
-@Data
+@ToString
+@Getter
+@NoArgsConstructor
 @Entity(name = "Board")
 public class Board {
 
@@ -26,6 +33,20 @@ public class Board {
     @JoinColumn(name = "userId")
     private User user;
 
+    @OneToMany(mappedBy = "board" ,cascade = CascadeType.REMOVE)
+    private List<Reply> replyList;
+
+    @CreationTimestamp
+    private Date creationTime;
 
 
+    @Builder
+    public Board(Integer id, String title, String content, User user, List<Reply> replyList, Date creationTime) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.user = user;
+        this.replyList = replyList;
+        this.creationTime = creationTime;
+    }
 }

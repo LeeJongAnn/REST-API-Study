@@ -7,10 +7,11 @@ import lombok.Builder;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -33,14 +34,19 @@ public class User {
     @Column(length = 25, nullable = false)
     private String email;
 
+
     @CreationTimestamp
     private LocalDateTime createTime;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Session> sessions = new ArrayList<>();
-
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Board> board = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Reply> reply = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Role> roles = new HashSet<>();
+
     public User() {
 
     }
@@ -73,13 +79,4 @@ public class User {
                 '}';
     }
 
-    public Session addSession() {
-
-        Session session = Session.builder()
-                .user(this)
-                .build();
-
-        sessions.add(session);
-        return session;
-    }
 }

@@ -25,10 +25,10 @@ import java.util.List;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
-@WebMvcTest(controllers = UserController.class ,
-        excludeAutoConfiguration = SecurityAutoConfiguration.class, // 추가
-        excludeFilters = {
-                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfiguration.class)})
+//@WebMvcTest(controllers = UserController.class ,
+//        excludeAutoConfiguration = SecurityAutoConfiguration.class, // 추가
+//        excludeFilters = {
+//                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfiguration.class)})
 public class UserControllerTests {
 
     @Autowired

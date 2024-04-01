@@ -35,7 +35,7 @@ public class boardServiceImpl implements boardService{
         List<Board> boardList = (List<Board>) repository.findAll();
 
         List<BoardResponse> boardResponses = boardList.stream()
-                .map(board -> new BoardResponse(board.getId(), board.getTitle(), board.getContent(), board.getUser()))
+                .map(board -> new BoardResponse(board.getTitle(), board.getContent(), board.getUser()))
                 .collect(Collectors.toList());
 
         return new Result(boardResponses.size(), boardResponses);
