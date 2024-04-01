@@ -24,3 +24,10 @@
 
 ## Day4 ~ 5 (3/28)
 1. 로그인 시 JWT AccessToken 발급 기능 추가
+
+## Day (4/1)
+
+1. 댓글 관련 Reply 엔티티 추가
+2. Board 엔티티에 Reply 추가
+3. Role 생성
+4. UserDetailsService 및 UserDetails 설정
