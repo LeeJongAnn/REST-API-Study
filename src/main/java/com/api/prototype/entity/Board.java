@@ -4,8 +4,10 @@ package com.api.prototype.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.util.Date;
+import java.util.List;
 
 
 @Data
@@ -26,6 +28,10 @@ public class Board {
     @JoinColumn(name = "userId")
     private User user;
 
+    @OneToMany(mappedBy = "board" ,cascade = CascadeType.REMOVE)
+    private List<Reply> replyList;
 
+    @CreationTimestamp
+    private Date creationTime;
 
 }

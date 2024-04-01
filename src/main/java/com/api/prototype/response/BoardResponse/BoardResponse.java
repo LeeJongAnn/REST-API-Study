@@ -29,7 +29,7 @@ public class BoardResponse {
     private User user;
 
     @Builder
-    public BoardResponse(Integer id, String title, String content, User user) {
+    public BoardResponse(String title, String content, User user) {
         this.id = id;
         this.title = title;
         this.content = content;
