@@ -1,0 +1,5 @@
+## 게시글 삭제시 요청
+
+DELETE http://localhost:8080/api/deleteBoard/15
+Content-Type: application/json
+

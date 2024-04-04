@@ -1,6 +1,7 @@
 package com.api.prototype.service.boardService;
 
 
+import com.api.prototype.Exception.BoardNotFoundException;
 import com.api.prototype.entity.Board;
 import com.api.prototype.repository.BoardRepository;
 import com.api.prototype.response.BoardResponse.BoardResponse;
@@ -9,7 +10,6 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +40,17 @@ public class boardServiceImpl implements boardService{
 
         return new Result(boardResponses.size(), boardResponses);
 
+    }
+
+    @Override
+    public void deleteBoard(Integer id) {
+        Board findBoard = repository.findById(id).orElseThrow(BoardNotFoundException::new);
+        repository.deleteById(id);
+    }
+
+    @Override
+    public Board updateBoard(Integer id) {
+        return null;
     }
 
     @Data

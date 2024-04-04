@@ -18,7 +18,7 @@ public class UserResponse {
     private String email;
 
     @NotNull
-    @Length(min = 6,max = 26,message = "password at least 6 strings to 26")
+    @Length(min = 6, max = 26, message = "password at least 6 strings to 26")
     private String password;
 
 
@@ -30,17 +30,11 @@ public class UserResponse {
     }
 
 
-
     public UserResponse responseDTO(User user) {
 
-        UserResponse userResponse = new UserResponse()
-                .builder()
-                .username(user.getUsername())
-                .password(user.getPassword())
+        return builder().username(user.getUsername()).password(user.getPassword())
                 .email(user.getEmail())
                 .build();
-
-        return userResponse;
     }
 
     public UserResponse() {
